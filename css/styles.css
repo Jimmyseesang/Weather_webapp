@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Bungee&family=Gruppo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Pixelify+Sans:wght@400..700&display=swap');
+
+@font-face {
+    font-family: arcade;
+    src: url(../ARCADE_N.TTF);
+}
+
+:root {
+
+    --main-font-color: #ffaa3c;
+    --border-font-color: #ff8c09;
+
+}
+
+* {
+
+    font-family: Bungee;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html, body {
+
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+.background {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.bg1 {
+
+    background-image: url(../Img/Ocean_6/1.png);
+    z-index: -10;
+
+}
+
+.bg2 {
+
+    background-image: url(../Img/Ocean_6/3.png);
+    z-index: -6;
+
+}
+
+.cold-background {
+
+    background-image: url(../Img/cloud/cold.png);
+    z-index: -10;
+
+}
+
+.clear-background {
+
+    background-image: url(../Img/cloud/clear.jpg);
+    z-index: -10;
+    
+}
+
+.hot-background {
+
+    background-image: url(../Img/cloud/hot.png);
+    z-index: -10;
+    
+}
+
+
+
+/* @keyframes cloud-appear {
+
+    0% {
+
+        opacity: 0;
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+    }
+
+} */
+
+.moon {
+
+    position: absolute;
+    z-index: -8;
+    border-radius: 50%;
+    animation-name: moon-move;
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+    animation-fill-mode: forwards;
+
+}
+
+.background-moon {
+
+    position: absolute;
+    z-index: -9;
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    box-shadow: 0 0 100px rgb(5, 52, 139), 0 0 100px rgb(0, 36, 77);
+    background-color: #0d1328;
+    animation-name: move-background;
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes move-background {
+
+    from {
+
+        top: 21%;
+        left: -5%;
+        opacity: 0;
+
+    }
+
+    to {
+
+        top: 21%;
+        left: 50.7%;
+        opacity: 1;
+
+    }
+
+}
+
+
+
+.content {
+
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 100;
+    animation-name: content-appear;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    opacity: 0;
+
+}
+
+.location-input {
+
+    position: absolute;
+    top: 43%;
+    left: 10%;
+    width: 479.062px;
+    height: 50px;
+    background-color: visible;
+    z-index: 8;
+    
+}
+
+.location-input-move-to-nav {
+
+    top: 1rem;
+    left: 45%;
+
+}
+
+.location-input-appear {
+
+    animation-name: input-move;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes input-move {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+.title {
+
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    font-size: 3rem;
+    color: var(--main-font-color);
+    text-shadow: -1px 0 var(--border-font-color), 0 1px var(--border-font-color), 1px 0 var(--border-font-color), 0 -1px var(--border-font-color);
+    letter-spacing: 1px;
+    font-weight: lighter;
+
+}
+
+.title-move-to-nav {
+
+    top: 1rem;
+    left: 2rem;
+    font-size: 2rem;
+
+}
+
+.title-appear {
+
+    animation-name: title-move;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes title-move {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+.icon {
+    
+    position: absolute;
+    top: 49%;
+    left: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 479.062px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 5px; 
+    font-size: 2rem;
+    color: #000000;
+    z-index: 7;
+
+}
+
+.icon-move-to-nav {
+
+    top: 1rem;
+    left: 95%;
+    width: 50px;
+
+}
+
+.icon-appear {
+
+    animation-name: icon-move;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+
+}
+
+@keyframes icon-move {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+.text {
+
+    margin: 1rem;
+    font-size: 1.5rem;
+
+}
+
+.icon:hover {
+
+    cursor: pointer;
+
+}
+
+
+
+
+@keyframes moon-move{
+
+    from {
+
+        top: 20%;
+        left: -5%;
+
+    }
+
+    to {
+
+        top: 20%;
+        left: 50%;
+
+    }
+
+}
+
+@keyframes content-appear {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+.icon-weather {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.main-icon {
+
+    width: 100%;
+
+}
+
+.search-box {
+
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border-radius: 5px 5px 0 0;
+    border: none;
+    text-align: center;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(119, 119, 119);   
+    backdrop-filter: blur(5px);
+    font-size: 1.5rem;
+    color: rgb(100, 100, 100);
+
+}
+
+.search-box::placeholder {
+
+    text-align: center;
+    font-size: 1rem;
+    color: rgb(100, 100, 100);
+
+}
+

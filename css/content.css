@@ -1,0 +1,562 @@
+:root {
+
+    --background-box: rgba(255, 255, 255, 0.2);
+    --border-color: rgba(255, 255, 255, 0.3);
+
+}
+
+#content {
+
+    width: 90vw;
+    height: 80vh;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    display: none;
+
+}
+
+.content-appear {
+
+    display: grid !important;
+    grid-template: 1fr 250px / repeat(4, 1fr);
+    grid-template-areas:
+        'main main fr fr'
+        'td td td td';
+    gap: 2rem;
+    animation-name: appear;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    color: white;
+
+}
+
+@keyframes appear {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+.box {
+
+    background: var(--background-box);
+    border-radius: 15px;
+    border: solid 1px var(--border-color);
+    backdrop-filter: blur(5px);
+
+}
+
+.main-box {
+
+    grid-area: main;
+    position: relative;
+    display: grid;
+    grid-template: repeat(2, 1fr) / 1fr 1fr 1fr 100px;
+    place-items: center;
+    gap: 1.5rem;
+    padding: 3rem 1rem;
+    grid-template-areas:
+        'temperature visibility humidity .'
+        'temperature sunrise sunset .';
+    max-width: 100% !important;
+
+}
+
+.flex {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+
+}
+
+.flex:not(.temperature) div:last-child {
+
+    font-size: 3rem;
+
+}
+
+.temperature {
+
+    grid-area: temperature;
+
+}
+
+.temperature div:first-child {
+
+    font-size: 2rem;
+
+}
+
+.temperature div:nth-child(2) {
+
+    font-size: 5rem;
+
+}
+
+.temperature div:last-child {
+
+    font-size: 1.2rem;
+
+}
+
+.visibility {
+
+    grid-area: visibility;
+
+}
+
+.humidity {
+
+    grid-area: humidity;
+
+}
+
+.sunrise {
+
+    grid-area: sunrise;
+
+}
+
+.sunset {
+
+    grid-area: sunset;
+}
+
+.icon-weather {
+
+    width: 65px;
+    height: 65px;
+    background-color: var(--background-box);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+
+}
+
+.forecast-box {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    grid-area: fr;
+    height: 80%;
+    border-radius: 15px 15px 15px 0;
+
+}
+
+.forecast-box::before {
+
+    content: "Forecast";
+    position: absolute;
+    bottom: -3.1rem;
+    left: -1px;
+    font-size: 1.5rem;
+    width: 45%;
+    height: 3rem;
+    background: var(--background-box);
+    border-radius: 0 0 15px 15px;
+    border: solid 1px var(--border-color);
+    border-top: none;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.day-forecast {
+
+    display: grid;
+    grid-template: 1fr / 80px 60px 1fr repeat(2, 1fr);
+    align-items: center;
+    font-size: 2rem;
+
+}
+
+.day-forecast div {
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.day-forecast div:not(.ficon, .ftem) {
+
+    font-size: 1.5rem;
+
+}
+
+.ficon {
+
+    width: 55px;
+    height: 55px;
+    background-color: var(--background-box);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.ficon img {
+
+    width: 130%;
+
+}
+
+.iconImg {
+
+    width: 90%;
+    height: 90%;
+
+}
+
+.today-temp {
+
+    grid-column: 1 / 5;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    grid-area: td;
+    border-radius: 15px 0 15px 15px;
+    position: relative;
+
+}
+
+.today-temp::after {
+
+    content: "Today Temperature";
+    position: absolute;
+    top: -3.1rem;
+    right: 0;
+    background-color: var(--background-box);
+    width: 25%;
+    height: 3rem;
+    border-radius: 15px 15px 0 0;
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    font-size: 1.5rem;
+
+}
+
+.hour {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-evenly;
+    font-size: 1.5rem;
+
+}
+
+@media screen and (max-width: 1600px) {
+
+    .flex {
+
+        font-size: 1.5rem;
+
+    }
+
+}
+
+@media screen and (max-width: 1300px) {
+
+    body, html {
+
+        overflow: auto;
+
+    }
+
+    .flex {
+
+        font-size: 1rem;
+
+    }
+
+    .flex:not(.temperature) div:last-child {
+
+        font-size: 2rem;
+
+    }
+
+    .day-forecast div:not(.ficon, .ftem) {
+
+        font-size: 1rem;
+
+    }
+
+    .today-temp::after {
+        
+        font-size: 1rem;
+    
+    }
+
+    .forecast-box::before {
+
+        font-size: 1rem;
+    
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    .location-input-move-to-nav {
+
+        top: 1rem;
+        left: 50%;
+        width: 40%;
+    
+    }
+
+    .icon-move-to-nav {
+
+        top: 1rem;
+        left: 90%;
+        width: 50px;
+    
+    }
+
+    #content {
+
+        width: 90%;
+        height: 120vh;
+        position: absolute;
+        top: 10%;
+        left: 5%;
+        display: none;
+        gap: 4rem;
+        justify-items: center;
+    
+    }
+
+    .content-appear {
+
+        display: grid !important;
+        grid-template: repeat(3, 1fr) / 1fr;
+        grid-template-areas:
+            "main"
+            "fr"
+            "td"    
+        ;
+        gap: 2rem;
+        animation-name: appear;
+        animation-timing-function: ease-in-out;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+        color: white;
+    
+    }
+    .forecast-box {
+
+        height: 100%;
+
+    }
+
+    .title-move-to-nav {
+
+        top: 1rem;
+        left: 2rem;
+        font-size: 1.5rem;
+    
+    }
+
+    .forecast-box::before {
+
+        top: -3.1rem;
+        left: -1px;
+        font-size: 1.5rem;
+        width: 50%;
+        height: 3rem;
+        background: var(--background-box);
+        border-radius: 15px 15px 0 0;
+        border: solid 1px var(--border-color);
+        border-bottom: none;
+    }
+
+    .forecast-box {
+
+        width: 100%;
+        border-radius: 0 15px 15px 15px;
+
+    }
+
+    .today-temp::after {
+
+        width: 50%;
+        font-size: 1.5rem;
+    
+    }
+
+    .day-forecast div:not(.ficon, .ftem) {
+
+        font-size: 1.5rem;
+    
+    }
+
+    .main-box {
+
+        width: 100%;
+
+    }
+
+    .today-temp {
+
+        width: 100%;
+
+    }
+
+}
+
+@media screen and (max-width: 900px){
+
+    .hour .hour-icon img {
+
+        width: 60%;
+
+    }
+
+}
+
+@media screen and (max-width: 660px){
+
+    .today-temp {
+
+        /* grid-column: 1 / 5; */
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        grid-area: td;
+    
+    }
+
+    .hour {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        
+    }
+
+    .day-forecast div:not(.ficon, .ftem) {
+
+        font-size: 1rem;
+
+    }
+
+    .ftem {
+
+        font-size: 1.5rem;
+
+    }
+
+    .today-temp::after {
+        
+        font-size: 1rem;
+    
+    }
+
+    .forecast-box::before {
+
+        font-size: 1rem;
+    
+    }
+
+    .title-move-to-nav {
+
+        top: 1.5rem;
+        left: 2rem;
+        font-size: 1.5rem;
+    
+    }
+
+    .temperature div:first-child {
+
+        font-size: 1.5rem;
+
+    }
+
+    .temperature div:nth-child(2) {
+
+        font-size: 3rem;
+
+    }
+
+    .temperature div:last-child {
+
+        font-size: 1rem;
+
+    }
+
+    .main-box .flex:not(.temperature) div:last-child {
+
+        font-size: 1.5rem !important;
+
+    }
+
+    .icon-weather {
+
+        width: 50px;
+        height: 50px;
+
+    }
+
+    .main-box {
+
+        display: grid;
+        grid-template: repeat(2, 1fr) / 1fr 1fr 1fr 50px;
+        grid-template-areas:
+            'temperature visibility humidity .'
+            'temperature sunrise sunset .';
+
+    }
+
+    .location-input-move-to-nav {
+
+        top: 4rem;
+        left: 2rem;
+        width: 70%;
+    
+    }
+
+
+
+    #content {
+
+        top: 15%;
+
+    }
+
+    .icon-move-to-nav {
+
+        top: 4rem;
+        left: 85%;
+    
+    }
+
+}
