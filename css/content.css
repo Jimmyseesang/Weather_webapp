@@ -560,3 +560,23 @@
     }
 
 }
+
+@media screen and (max-width: 460px){
+    
+    .main-box {
+
+        grid-template: repeat(2, 1fr) / 1fr 1fr 1fr;
+        grid-template-areas:
+            'temperature visibility humidity'
+            'temperature sunrise sunset';
+        max-width: 100% !important;
+
+    }
+
+    .icon-weather {
+
+        display: none;
+
+    }
+
+}

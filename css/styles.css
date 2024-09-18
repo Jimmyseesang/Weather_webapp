@@ -391,3 +391,30 @@ html, body {
 
 }
 
+@media screen and (max-width: 460px) {
+
+    .location-input-move-to-nav {
+
+        width: 50%;
+
+    }
+
+    .location-input {
+
+        width: 60%;
+
+    }
+
+    .icon {
+
+        width: 60%;
+
+    }
+
+    .icon .text {
+
+        font-size: 1rem;
+
+    }
+
+}
